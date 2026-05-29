@@ -38,8 +38,7 @@ It is designed for use cases that require:
 ## Core repositories
 
 - **XGR** — public specifications, standards and examples  
-- **xgr-node** — EVM-compatible XGRChain node implementation  
-- **XGR-Contracts** — public smart contracts and reference contracts
+- **xgr-node** — EVM-compatible XGRChain node implementation
 
 ---
 
