@@ -81,35 +81,24 @@ https://github.com/xgr-network/XGR
 
 ## XGR Interchain
 
-XGR Network maintains Interchain infrastructure for connecting XGRChain with supported external networks.
+[Full technical documentation: protocol, contracts, CLI, RPC, independent transfers, runtime and services](https://github.com/xgr-network/XGR/blob/main/docs/interchain/README.md).
 
-The first implemented XGR asset route connects:
+XGR Interchain supports multiple assets and directed route instances across **XGRChain (1643), Base (8453) and Arbitrum (42161)**. The repository records XGR representations on the hub and both spokes, and ARB collateral on Arbitrum with synthetic representations on XGRChain and Base. A manifest entry is not itself proof of current on-chain transfer readiness.
 
-**XGRChain ↔ Base**
+Every directed route has XGRChain at exactly one endpoint. XGRChain↔Base and XGRChain↔Arbitrum are distinct one-hop connections; Base↔Arbitrum journeys use two separately authenticated hops through XGRChain. This is not a single-route or XGR-only bridge.
 
-Both transfer directions have been validated end-to-end on mainnet.
+The public Factory permits independent router deployments and route registration. A router has one immutable Gateway/route binding **per destination domain**; the hub router can bind multiple spoke domains. Parallel route instances for the same canonical asset are possible using separate router pairs. XITA's listing does not grant exclusive protocol admission.
 
-The route uses:
+Each message is authenticated with **Direct-BLS**, binding its original source evidence, route, fee and current destination set. `XITADirectTransport` uses a Mailbox and a zero-fee `ProtocolFee` dispatch hook. The retained `dispatchHook` field is **not a MerkleTreeHook**; it stores no message leaves and supplies no Merkle proof. Native chain state/receipt tries are unrelated.
 
-- native XGR on XGRChain,
-- synthetic XGR / wXGR on Base,
-- lock/mint and burn/unlock semantics,
-- cross-chain messaging,
-- validator attestations,
-- BLS verification,
-- message-specific Direct-BLS authorization,
-- destination-side security modules,
-- relayers.
+The managed relayer is optional. Any executor can submit valid destination `Mailbox.process` calldata and pay destination gas. The public recovery helper prepares that calldata without signing keys or company permission. Source fees, principal/allowance, chain access and eligible validator quorum remain required.
 
-Bidirectional mainnet validation does not by itself imply that every route direction is continuously enabled or that a public bridge interface is currently open.
+- [Detailed multi-asset architecture](https://github.com/xgr-network/XGR/blob/main/docs/interchain/XGR_INTERCHAIN_Overview.md)
+- [Exact security model and signed payload](https://github.com/xgr-network/XGR/blob/main/docs/interchain/XGR_INTERCHAIN_Security_Model.md)
+- [Transfer without managed relayer: complete procedure](https://github.com/xgr-network/XGR/blob/main/docs/interchain/XGR_INTERCHAIN_v3.4.0_Operations.md)
+- [Validator CLI and JSON-RPC](https://github.com/xgr-network/xgr-node/blob/XGR3.0/docs/ILN_V340_OPERATOR_REFERENCE.md)
+- [Deployment and route inventory](https://github.com/xgr-network/XGR/blob/main/docs/interchain/XGR_INTERCHAIN_Deployment_Reference.md)
 
-Current deployment and operational state belongs to the Interchain repository and its deployment manifests.
-
-Implementation:
-
-https://github.com/xgr-network/xgr-interchain
-
----
 
 ## AI-native access with MCP
 
@@ -246,7 +235,7 @@ For example:
 
 - an RPC user is not a consensus validator,
 - an Interchain relayer is not a consensus validator,
-- an Interchain validator is not automatically an XGRChain validator,
+- an eligible current Interchain signer must also match the active canonical XGR validator identity and BLS key,
 - MCP access does not transfer control of a user's transaction signer.
 
 ---
