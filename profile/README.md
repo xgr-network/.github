@@ -20,7 +20,7 @@ Current public mainnet baseline:
 
 | Parameter | Value |
 | --- | --- |
-| Public node | `xgr-node v3.1.1` |
+| Public node | `xgr-node v3.4.0` |
 | Chain ID | `1643` |
 | Native asset | XGR |
 | Execution | EVM-compatible |
@@ -97,7 +97,7 @@ The route uses:
 - cross-chain messaging,
 - validator attestations,
 - BLS verification,
-- Merkle proofs,
+- message-specific Direct-BLS authorization,
 - destination-side security modules,
 - relayers.
 
@@ -107,7 +107,7 @@ Current deployment and operational state belongs to the Interchain repository an
 
 Implementation:
 
-https://github.com/xgr-network/xgr-hyperlane
+https://github.com/xgr-network/xgr-interchain
 
 ---
 
@@ -152,7 +152,7 @@ https://mcp.testnet.xgr.network/mcp
 | --- | --- |
 | [XGR](https://github.com/xgr-network/XGR) | Public specifications, XRC standards, genesis and technical documentation |
 | [xgr-node](https://github.com/xgr-network/xgr-node) | Public XGRChain node implementation |
-| [xgr-hyperlane](https://github.com/xgr-network/xgr-hyperlane) | XGR Interchain infrastructure and deployment tooling |
+| [xgr-interchain](https://github.com/xgr-network/xgr-interchain) | XGR Interchain infrastructure and deployment tooling |
 | [xgr-mcp](https://github.com/xgr-network/xgr-mcp) | Public MCP implementation for AI-native XGR access |
 
 Other repositories in the organization contain application, tooling, infrastructure and ecosystem components built around the same stack.
@@ -202,7 +202,7 @@ A change to one component does not automatically imply a protocol change in anot
 
 ### Interchain and AI
 
-- **Interchain:** https://github.com/xgr-network/xgr-hyperlane
+- **Interchain:** https://github.com/xgr-network/xgr-interchain
 - **MCP implementation:** https://github.com/xgr-network/xgr-mcp
 - **MCP Mainnet:** https://mcp.xgr.network/mcp
 - **MCP Testnet:** https://mcp.testnet.xgr.network/mcp
@@ -213,15 +213,15 @@ A change to one component does not automatically imply a protocol change in anot
 
 Current XGRChain public release:
 
-**`xgr-node v3.1.1`**
+**`xgr-node v3.4.0`**
 
 Release commit:
 
-**`1a4844b311fb856cb8c2303a40fa8aa69b560544`**
+**`cbe6f8a4ae1718429a9924dcf87f0d28591d74e1`**
 
 Release artifacts:
 
-https://github.com/xgr-network/xgr-node/releases/tag/v3.1.1
+https://github.com/xgr-network/xgr-node/releases/tag/v3.4.0
 
 The XGRChain protocol documentation is maintained against this release unless an individual document explicitly states otherwise.
 
@@ -275,3 +275,14 @@ Do not publish:
 XGR Network develops an integrated blockchain stack centered on deterministic execution rather than isolated token transfers.
 
 The architecture combines an EVM-compatible Layer-1, process execution, Interchain infrastructure and AI-native protocol access while keeping consensus, application and external-service authority explicitly separated.
+
+
+## Current v3.4.0 documentation and independent operation
+
+XGRChain node v3.4.0 is deployed on Testnet and Mainnet according to the network operator (27 October 2026). Binary rollout and consensus activation are distinct: the published Mainnet configuration activates `params.forks.securityAccounting.block` at **12,186,213**, inclusively. An omitted fork entry leaves the new rules inactive.
+
+The current Interchain implementation is [xgr-interchain](https://github.com/xgr-network/xgr-interchain). Route registration through the public Factory is permissionless; XITA listing is not protocol admission. Message validity depends on the current destination validator BLS quorum and verified source evidence, not on the identity of a relayer. Users or independent executors can prepare and submit the same authenticated `Mailbox.process` call without the XITA website, commercial execution gateway, sponsor or managed relayer. Gas, protocol fees, working RPC access and validator quorum availability remain required.
+
+- [Complete Direct-BLS technical reference](https://github.com/xgr-network/XGR/blob/main/docs/interchain/XGR_INTERCHAIN_v3.4.0_Reference.md)
+- [Independent transfer and recovery runbook](https://github.com/xgr-network/XGR/blob/main/docs/interchain/XGR_INTERCHAIN_v3.4.0_Operations.md)
+- [Node release, checksums and activation](https://github.com/xgr-network/XGR/blob/main/docs/chain/XGRCHAIN_v3.4.0_Release_and_Activation.md)
