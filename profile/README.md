@@ -1,14 +1,32 @@
 # XGR Network
 
-**XGR Network builds infrastructure for deterministic execution, verifiable processes and AI-native interaction on an EVM-compatible Layer-1.**
+**Reach more blockchains. We handle the integration.**
 
-The public XGR stack combines:
+Through **XITA**, token projects can expand to additional supported blockchain networks without developing or maintaining their own bridge. For **approved projects**, XGR.Network handles the **technical integration and smart-contract deployment free of charge**. After the first successful transfer, eligible tokens can also become discoverable through XITA. Normal network transaction and validator fees remain separate.
 
-- **XGRChain** — EVM-compatible Layer-1 blockchain
-- **XDaLa** — validation, orchestration and process execution
-- **XGR Interchain** — cross-chain XGR messaging and asset infrastructure
-- **XGR MCP Gateway** — AI-native access to chain, process and protocol data
-- **XGR** — native asset of XGRChain
+XGRChain connects the blockchain ecosystems; XDaLa adds verifiable automated workflows; and the XGR MCP Gateway links AI agents with blockchain data and applications.
+
+**Explore:** [XITA — connect your token](https://xita.xgr.network/) · [Free project integration](https://xita.xgr.network/join) · [XGRChain native coin](https://xgr.network/xgr.html) · [Technical documentation](https://xgr.network/docs/)
+
+The XGR ecosystem includes:
+
+- **XITA / XGR Interchain** — token connectivity across supported blockchains, without building a separate bridge
+- **XGRChain** — independent EVM-compatible Layer-1 and connecting hub
+- **XDaLa** — verifiable business-process and workflow automation
+- **XGR MCP Gateway** — interfaces for AI-agent access to chain and workflow tooling
+- **XGR** — the native coin of XGRChain, used for network fees and validator participation
+
+---
+
+## XITA — integrate once, expand your token's reach
+
+XITA helps existing token projects access more blockchain ecosystems through XGRChain. Instead of commissioning a bridge for every additional network, projects can connect their tokens through XITA's shared Interchain infrastructure.
+
+**XGR.Network covers technical integration and smart-contract deployment for approved projects, at no cost to those projects.** The application supports project discovery after the first successful transfer, subject to eligibility. Users retain control of their wallets and transactions; normal network gas and validator fees still apply.
+
+Available blockchain networks and individual token routes evolve over time. **[Check XITA for current support](https://xita.xgr.network/)** rather than relying on a static list in a project description. The protocol security and implementation details remain documented below and in the public Interchain reference.
+
+[Explore XITA](https://xita.xgr.network/) · [Request free technical integration](https://xita.xgr.network/join)
 
 ---
 
@@ -80,6 +98,8 @@ https://github.com/xgr-network/XGR
 ---
 
 ## XGR Interchain
+
+This section documents the deployed technical architecture and operational details. For token projects, the practical entry point is **[XITA](https://xita.xgr.network/)**, including **[free technical integration for approved projects](https://xita.xgr.network/join)**. The named networks below are an implementation snapshot; current support and active routes must be checked on XITA.
 
 [Full technical documentation: protocol, contracts, CLI, RPC, independent transfers, runtime and services](https://github.com/xgr-network/XGR/blob/main/docs/interchain/README.md).
 
@@ -191,6 +211,8 @@ A change to one component does not automatically imply a protocol change in anot
 
 ### Interchain and AI
 
+- **XITA for token projects:** https://xita.xgr.network/
+- **Free project integration application:** https://xita.xgr.network/join
 - **Interchain:** https://github.com/xgr-network/xgr-interchain
 - **MCP implementation:** https://github.com/xgr-network/xgr-mcp
 - **MCP Mainnet:** https://mcp.xgr.network/mcp
