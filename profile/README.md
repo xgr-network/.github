@@ -1,5 +1,13 @@
 # XGR Network
 
+## v3.5.0 staking BLS possession
+
+XGRChain v3.5.0 activated `stakingBlsPoP` on Mainnet at block **12,586,649**, inclusively, on 5 November 2026. Testnet activation was at **6,613,834**. This single gate upgrades the staking runtime, migrates independently verified public possession proofs and enforces proven BLS keys in consensus. Stakes and delegations remain in the existing contract at `0x0000000000000000000000000000000000001001`; no restaking is required.
+
+The v3.5.0 `ibft join` command creates and submits the possession proof automatically from the local BLS secret, using the live chain ID and registration nonce. New validators do not edit the historical migration manifest. Keep the activated genesis configuration for every restart and fresh sync; a standalone manifest file is not required.
+
+[Release, verified artifacts, migration and operator instructions](https://github.com/xgr-network/XGR/blob/main/docs/chain/XGRCHAIN_v3.5.0_Release_and_Activation.md). Consensus BLS seal encoding and the XITA / Direct-BLS message format are unchanged.
+
 **Reach more blockchains. We handle the integration.**
 
 Through **XITA**, token projects can expand to additional supported blockchain networks without developing or maintaining their own bridge. For **approved projects**, XGR.Network handles the **technical integration and smart-contract deployment free of charge**. After the first successful transfer, eligible tokens can also become discoverable through XITA. Normal network transaction and validator fees remain separate.
@@ -38,7 +46,7 @@ Current public mainnet baseline:
 
 | Parameter | Value |
 | --- | --- |
-| Public node | `xgr-node v3.4.0` |
+| Public node | `xgr-node v3.5.0` |
 | Chain ID | `1643` |
 | Native asset | XGR |
 | Execution | EVM-compatible |
@@ -224,15 +232,15 @@ A change to one component does not automatically imply a protocol change in anot
 
 Current XGRChain public release:
 
-**`xgr-node v3.4.0`**
+**`xgr-node v3.5.0`**
 
 Release commit:
 
-**`cbe6f8a4ae1718429a9924dcf87f0d28591d74e1`**
+**`b3717a44b5ec5faa19fabdd88bd4b91f54659983`**
 
 Release artifacts:
 
-https://github.com/xgr-network/xgr-node/releases/tag/v3.4.0
+https://github.com/xgr-network/xgr-node/releases/tag/v3.5.0
 
 The XGRChain protocol documentation is maintained against this release unless an individual document explicitly states otherwise.
 
@@ -288,12 +296,12 @@ XGR Network develops an integrated blockchain stack centered on deterministic ex
 The architecture combines an EVM-compatible Layer-1, process execution, Interchain infrastructure and AI-native protocol access while keeping consensus, application and external-service authority explicitly separated.
 
 
-## Current v3.4.0 documentation and independent operation
+## Current v3.5.0 documentation and independent operation
 
-XGRChain node v3.4.0 is deployed on Testnet and Mainnet according to the network operator (27 October 2026). Binary rollout and consensus activation are distinct: the published Mainnet configuration activates `params.forks.securityAccounting.block` at **12,186,213**, inclusively. An omitted fork entry leaves the new rules inactive.
+XGRChain v3.5.0 activated `stakingBlsPoP` on Mainnet at block **12,586,649**, inclusively, on 5 November 2026. Testnet activation was at **6,613,834**. This single gate upgrades the staking runtime, migrates independently verified public possession proofs and enforces proven BLS keys in consensus. Stakes and delegations remain in the existing contract at `0x0000000000000000000000000000000000001001`; no restaking is required. The earlier `securityAccounting` activation at 12,186,213 remains unchanged.
 
 The current Interchain implementation is [xgr-interchain](https://github.com/xgr-network/xgr-interchain). Route registration through the public Factory is permissionless; XITA listing is not protocol admission. Message validity depends on the current destination validator BLS quorum and verified source evidence, not on the identity of a relayer. Users or independent executors can prepare and submit the same authenticated `Mailbox.process` call without the XITA website, commercial execution gateway, sponsor or managed relayer. Gas, protocol fees, working RPC access and validator quorum availability remain required.
 
 - [Complete Direct-BLS technical reference](https://github.com/xgr-network/XGR/blob/main/docs/interchain/XGR_INTERCHAIN_v3.4.0_Reference.md)
 - [Independent transfer and recovery runbook](https://github.com/xgr-network/XGR/blob/main/docs/interchain/XGR_INTERCHAIN_v3.4.0_Operations.md)
-- [Node release, checksums and activation](https://github.com/xgr-network/XGR/blob/main/docs/chain/XGRCHAIN_v3.4.0_Release_and_Activation.md)
+- [Node release, checksums and activation](https://github.com/xgr-network/XGR/blob/main/docs/chain/XGRCHAIN_v3.5.0_Release_and_Activation.md)
