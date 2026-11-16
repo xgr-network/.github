@@ -1,5 +1,7 @@
 # XGR Network
 
+> **XGRChain ecosystem baseline:** The currently published XGRChain node is **[v3.5.1](https://github.com/xgr-network/xgr-node/releases/tag/v3.5.1)** (15 November 2026, [official operator reference](https://github.com/xgr-network/XGR/blob/main/docs/chain/XGRCHAIN_v3.5.1_Release_and_Operations.md)). This is the **node** version, not this repository's package/release version. v3.5.1 changes Direct-BLS vote recovery durability (F-20) without a new staking/consensus fork or genesis migration.
+
 XGR Network builds XGRChain and XDaLa, an EVM compatible blockchain and process engine for deterministic on chain validation, orchestration and execution.
 
 ## What we build
